@@ -1,0 +1,49 @@
+<!--pages/home/home.wxml-->
+<view class='unlogin' wx:if="{{!userInfo}}">
+  <view class='unlogin-info'>
+    <view class='unlogin-avatar'></view>
+    <view class='unlogin-tip'>
+      <view class='unlogin-text1'>未登录</view>
+      <view class='unlogin-text2'>请登录后使用</view>
+    </view>
+  </view>
+  <button class="unlogin-loginbtn" open-type="getUserInfo" bindgetuserinfo="onTapLogin">微信登录</button>
+</view>
+
+
+<!--login-->
+<view class='login' wx:else>
+
+  <view class='content-wrapper'>
+
+    <view class="movie-empty" wx:if="{{!comment}}">
+      <view class="empty-text">暂时还没有可推荐书籍</view>
+    </view>
+
+    <view wx:else>
+      <view class='movie-info'>
+        <image class='movie-image' src="{{comment.movie_image}}" bindtap='onTapMovDetail' mode='widthFix'></image>
+        <view class='movie-title'>{{comment.movie_title}}</view>
+      </view>
+      <view class='comment-info' bindtap='onTapComDetail'>
+        <image class="user-avatar" src="{{comment.user_avatar}}"></image>
+        <view class='comment-text'>{{comment.user_name}}给你推荐了一本书籍</view>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="bottom-button">
+    <navigator class='button' url="/pages/movlist/movlist">
+      <image src="/images/remen.png"></image>
+      <text>热门</text>
+    </navigator>
+    <navigator class='button' url="/pages/user/user">
+      <image src="/images/wo.png"></image>
+      <text>我的</text>
+    </navigator>
+  </view>
+
+
+
+</view>

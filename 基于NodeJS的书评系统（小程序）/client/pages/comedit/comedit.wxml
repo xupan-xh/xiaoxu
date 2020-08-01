@@ -1,0 +1,72 @@
+<!--pages/comedit/comedit.wxml-->
+<view class='unlogin' wx:if="{{!userInfo}}">
+  <view class='unlogin-info'>
+    <view class='unlogin-avatar'></view>
+    <view class='unlogin-tip'>
+      <view class='unlogin-text1'>未登录</view>
+      <view class='unlogin-text2'>请登录后发布书评</view>
+    </view>
+  </view>
+  <button class="unlogin-loginbtn" open-type="getUserInfo" bindgetuserinfo="onTapLogin">微信登录</button>
+</view>
+
+<view class='login' wx:else>
+
+  <view class='movie-wrapper'>
+
+    <view class='movie-detail'>
+
+      <image class='movie-image' src="{{movie.image}}"></image>
+      <view class='movie-title'>{{movie.title}}</view>
+
+      <view wx:if="{{comType === 'text'}}" class="com-wrapper">
+        <view wx:if="{{!preview}}">
+          <textarea placeholder="输入你的书评内容..." auto-focus='true' show-confirm-bar='true' placeholder-class="text-placeholder" bindinput='onInputComment' maxlength='500' value="{{comContent}}"></textarea>
+          <view class='word-num'>{{comContent.length}}/500</view>
+        </view>
+
+        <view wx:if="{{preview}}">
+          <view class='com-content'>{{comContent}}</view>
+        </view>
+      </view>
+
+      <view wx:if="{{comType === 'voice'}}" class="com-wrapper">
+
+        <view class="voice-container {{comVoice? 'visible': 'disvisible'}} {{preview?'voice-preview':''}}" bindtap='onTapVoice'>
+          <image src="{{voicePlayStatus === 0? '/images/play.png' : '/images/stop.png'}}" class='voice-image'></image>
+          <view class='duration'>{{comVoice.durationText}}</view>
+        </view>
+
+        <view wx:if="{{!preview}}">
+
+          <view wx:if="{{(voiceRecAuthStatus === 0 || voiceRecAuthStatus === 2)}}" class="rec-container {{voiceRecStatus === 0 || voiceRecStatus === 2?'':'recording'}}" bindtouchstart='startRec' bindtouchend='endRec'>
+            <image src='/images/record.png' class='rec-icon'></image>
+            <view class='rec-text'>{{voiceRecStatusTip[voiceRecStatus]}}</view>
+          </view>
+
+          <view open-type="openSetting" bindopensetting="settingCallBack" wx:if="{{voiceRecAuthStatus === 1}}" class="rec-container">
+            <view class='rec-text'>授权录音</view>
+          </view>
+
+        </view>
+
+      </view>
+
+    </view>
+
+  </view>
+
+  <view class='bottom-btn-wrapper' wx:if="{{!preview}}">
+    <button class='bottom-btn' disabled="{{comContent.length === 0 && !comVoice}}" bindtap='onTapFinish'>完 成
+    </button>
+  </view>
+
+  <view class='bottom-btn-wrapper' wx:if="{{preview}}">
+    <button class='bottom-btn-last re-edit' bindtap='onTapReEdit'>
+      <view>重新编辑</view>
+    </button>
+    <button class='bottom-btn-last' bindtap='onSendCom'>发布书评
+    </button>
+  </view>
+
+</view>

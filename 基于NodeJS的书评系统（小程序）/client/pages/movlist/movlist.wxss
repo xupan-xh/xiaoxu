@@ -1,0 +1,56 @@
+/* pages/movlist/movlist.wxss */
+.movie-wrapper{
+  padding: 50rpx 60rpx;
+  position: relative;
+}
+
+.movie-empty{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35rpx;
+  line-height: 49rpx;
+  opacity: 0.5;
+}
+
+.movie-item{
+  height: 300rpx;
+  width: 100%;
+  border-radius: 2rpx; 
+  border: 1rpx solid #DCDCDC;
+  box-shadow: 8rpx 8rpx 12rpx rgba(150, 150, 150, 0.664);
+  /* position: relative; */
+  margin-bottom: 50rpx;
+  background-color: #ffffff;
+  display: flex;
+}
+
+.movie-img{
+  height: 300rpx;
+  width: 200rpx;
+  box-shadow: 0rpx 8rpx 12rpx rgba(150, 150, 150, 0.664);
+}
+
+.movie-info{
+  padding: 30rpx;
+}
+
+.movie-title{
+  font-size: 35rpx;
+  line-height: 49rpx;
+  font-weight: bold;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}
+
+.movie-category{
+  font-size: 30rpx;
+  line-height: 42rpx;
+  opacity: 0.5;
+}
+
+.no-more{
+  text-align: center;
+  font-size: 30rpx;
+  opacity: 0.5;
+}

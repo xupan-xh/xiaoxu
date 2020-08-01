@@ -1,0 +1,31 @@
+<!--pages/movdetail/movdetail.wxml-->
+<view class='movie-wrapper'>
+  <view class="movie-detail">
+
+    <image class='movie-image' src="{{movie.image}}"></image>
+
+    <view class='movie-title'>{{movie.title}}</view>
+    <view class='movie-description'>{{movie.description}}</view>
+
+    <view class='btn-wrapper'>
+
+      <view class='button' data-id="{{movie.id}}" bindtap='seeComment'>
+        <image class='btn-image-seecom' src="/images/yanjing.png"></image>
+        <view class='btn-text'>查看书评</view>
+      </view>
+
+      <view wx:if="{{userComments.length==0}}" class='button' data-id="{{movie.id}}" bindtap='addComment'>
+        <image class='btn-image-addcom' src="/images/liaotian.png"></image>
+        <view class='btn-text'>添加书评</view>
+      </view>
+
+      <view wx:if="{{userComments.length>0}}" class='button' data-id="{{movie.id}}" bindtap='addComment'>
+        <image class='btn-image-addcom' src="/images/liaotian.png"></image>
+        <view class='btn-text'>添加书评</view>
+      </view>
+
+    </view>
+
+  </view>
+
+</view>

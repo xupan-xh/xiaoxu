@@ -1,0 +1,95 @@
+/* pages/home/home.wxss */
+
+/* 内容采用fixed布局，更适配大屏手机，居中更美观 */
+.content-wrapper{
+  position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-top: -530rpx;
+    margin-left: -375rpx;
+}
+
+.movie-info {
+  /* padding-top: 80rpx; */
+  position: relative;
+}
+
+.movie-empty{
+  margin: 100rpx;
+  height: 700rpx;
+  width: 550rpx;
+  border-radius: 15rpx; 
+  box-shadow: 8rpx 8rpx 12rpx rgba(150, 150, 150, 0.664);
+  position: relative;
+  background-color: #FFDE55;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 35rpx;
+  line-height: 49rpx;
+}
+
+.movie-image{
+  width: 550rpx;
+  margin-left: 100rpx;
+  box-shadow: 8rpx 8rpx 12rpx rgba(150, 150, 150, 0.664);
+}
+
+.movie-title{
+  text-align: center;
+  font-size: 40rpx;
+  line-height: 56rpx;
+  margin-top: 20rpx;
+  margin-left: 100rpx;
+}
+
+.comment-info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40rpx;
+  margin-left: 100rpx;
+}
+
+.user-avatar{
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 30rpx;
+  overflow: hidden;
+}
+
+.comment-text{
+  font-size: 35rpx;
+  padding-left: 20rpx;
+}
+
+.bottom-button{
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 35rpx;
+  line-height: 49rpx;
+  background: #fff;
+  height: 100rpx;
+  border-top: 2px solid #DCDCDC;
+}
+
+.button{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  line-height: 42rpx;
+}
+
+.button image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}

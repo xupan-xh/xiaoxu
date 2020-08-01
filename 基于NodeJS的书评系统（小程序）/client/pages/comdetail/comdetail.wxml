@@ -1,0 +1,55 @@
+<!--pages/comdetail/comdetail.wxml-->
+<view class='unlogin' wx:if="{{!userInfo}}">
+  <view class='unlogin-info'>
+    <view class='unlogin-avatar'></view>
+    <view class='unlogin-tip'>
+      <view class='unlogin-text1'>未登录</view>
+      <view class='unlogin-text2'>请登录后发布书评</view>
+    </view>
+  </view>
+  <button class="unlogin-loginbtn" open-type="getUserInfo" bindgetuserinfo="onTapLogin">微信登录</button>
+</view>
+
+<view wx:else>
+  <view class='movie-wrapper'>
+
+    <view class='movie-detail'>
+
+      <image class='movie-image' src="{{commentDetail.movie_image}}"></image>
+      <view class='movie-title'>{{commentDetail.movie_title}}</view>
+
+      <view class='comment-info'>
+        <image class="user-avatar" src="{{commentDetail.user_avatar}}"></image>
+        <view class='comment-text'>{{commentDetail.user_name}}的书评</view>
+      </view>
+
+      <view wx:if="{{commentDetail.type === 'text'}}" class="com-wrapper">
+          <view class='com-content'>{{commentDetail.content}}</view>
+      </view>
+
+      <view wx:if="{{commentDetail.type === 'voice'}}" class="com-wrapper">
+
+        <view class="voice-container" bindtap='onTapVoice'>
+          <image src="{{voicePlayStatus === 0? '/images/play.png' : '/images/stop.png'}}" class='voice-image'></image>
+          <view class='duration'>{{commentDetail.duration}}</view>
+        </view>
+
+      </view>
+
+    </view>
+
+  </view>
+
+  <view class='bottom-btn-wrapper'>
+    <button class='bottom-btn-last re-edit' bindtap='onTapCollect'>
+      <view wx:if="{{!commentDetail.collection_id}}">收藏书评</view>
+      <view wx:if="{{commentDetail.collection_id}}">取消收藏</view>
+    </button>
+    <button class='bottom-btn-last' wx:if="{{userComments.length==0}}" bindtap='onEditCom'>
+      <view>写书评</view>
+    </button>
+    <button class='bottom-btn-last' wx:if="{{userComments.length>0}}" bindtap='onUserCom'>
+      <view>我的书评</view>
+    </button>
+  </view>
+</view>

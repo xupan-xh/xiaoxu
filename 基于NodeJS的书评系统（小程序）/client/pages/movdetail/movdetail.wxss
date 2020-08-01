@@ -1,0 +1,74 @@
+/* pages/movdetail/movdetail.wxss */
+
+.movie-wrapper {
+  padding: 12% 50rpx 5%;
+  /* position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-top: -600rpx;
+  margin-left: -375rpx; */
+}
+
+.movie-detail {
+  background-color: #fff;
+  border: 2rpx solid #bdbdbd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-image {
+  height: 300rpx;
+  width: 200rpx;
+  margin-top: -60rpx;
+}
+
+.movie-title {
+  font-size: 40rpx;
+  line-height: 56rpx;
+  font-weight: bold;
+  margin-top: 40rpx;
+}
+
+.movie-description {
+  margin-top: 10rpx;
+  font-size: 35rpx;
+  line-height: 49rpx;
+  opacity: 0.8;
+  padding: 40rpx 80rpx;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 80rpx;
+  margin-bottom: 60rpx;
+}
+
+.button {
+  border: 1rpx solid #bdbdbd;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 80rpx;
+  width: 35%;
+}
+
+.btn-image-seecom {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.btn-image-addcom {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.btn-text {
+  font-size: 32rpx;
+  line-height: 48rpx;
+  padding-left: 20rpx;
+}

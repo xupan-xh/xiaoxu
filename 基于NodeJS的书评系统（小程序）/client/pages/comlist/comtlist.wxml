@@ -1,0 +1,39 @@
+<!--pages/comlist/comtlist.wxml-->
+<view class="comment-list">
+
+  <view class="comment-wrapper" wx:if="{{comments.length === 0}}">
+    <view class='comment-item  comment-empty'>暂无评论，快去添加吧</view>
+  </view>
+
+  <view wx:elif="{{comments.length > 0}}">
+
+    <view wx:for="{{comments}}" wx:for-item="comment" wx:key="{{comment.id}}" wx:for-index="idx" class='comment-item' data-com-id="{{comment.id}}" data-movie-id="{{comment.movie_id}}" bindtap='onTapComDetail'>
+
+      <view class='comment-info'>
+
+        <image src='{{comment.user_avatar}}' class='user-avatar'></image>
+
+        <view class='comment-detail'>
+          <view class='comment-username'>{{comment.user_name}}</view>
+          <view class='comment-createtime'>{{comment.create_time}}</view>
+        </view>
+
+      </view>
+
+      <view wx:if="{{comment.type === 'voice'}}">
+        <view class="voice-wrapper" catchtap='onTapPlay' data-src="{{comment.content}}" data-index="{{idx}}">
+          <image src="{{voicePlayStatu[idx] == 0?'/images/play.png': '/images/stop.png'}}" class='voice-image'></image>
+          <view class='voice-duration'>{{comment.duration}}</view>
+        </view>
+      </view>
+
+      <view wx:elif="{{comment.type === 'text'}}">
+        <view class='comment-content'>{{comment.content}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='bottom-btn-wrapper'>
+  <button class='bottom-btn' bindtap='onTapHome'>回到首页
+  </button>
+</view>

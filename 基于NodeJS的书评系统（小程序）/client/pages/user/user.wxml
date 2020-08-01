@@ -1,0 +1,54 @@
+<!--pages/user/user.wxml-->
+<view class='unlogin' wx:if="{{!userInfo}}">
+  <view class='unlogin-info'>
+    <view class='unlogin-avatar'></view>
+    <view class='unlogin-tip'>
+      <view class='unlogin-text1'>未登录</view>
+      <view class='unlogin-text2'>请登录后使用</view>
+    </view>
+  </view>
+  <button class="unlogin-loginbtn" open-type="getUserInfo" bindgetuserinfo="onTapLogin">微信登录</button>
+</view>
+
+<!--login-->
+<view class='login' wx:else>
+  <view class='page-tab'>
+    <view class="{{tabMode == 0? 'checked-title': 'unchecked-title'}}" bindtap='onTapChange' data-tap="0">我的收藏</view>
+    <view class="{{tabMode == 1? 'checked-title': 'unchecked-title'}}" bindtap='onTapChange' data-tap="1">我的发布</view>
+  </view>
+
+  <view class="movie-wrapper">
+    <view wx:for="{{comments}}" wx:for-item="comment" wx:key="{{comment.comment_id}}" wx:for-index="idx" class='movie-item' data-com-id="{{comment.comment_id}}" bindtap='onTapComDetail'>
+      <image src='{{comment.movie_image}}' class='movie-img'></image>
+      <view class='movie-info'>
+        <view class='movie-title'>{{comment.movie_title}}</view>
+
+
+        <view class='comment-content'>
+          <view wx:if="{{comment.type==='text'}}" class='movie-content'>{{comment.content}}</view>
+
+          <view wx:if="{{comment.type === 'voice'}}">
+            <view class="voice-wrapper" catchtap='onTapPlay' data-src="{{comment.content}}" data-index="{{idx}}">
+              <image src="{{voicePlayStatu[idx] == 0?'/images/play.png': '/images/stop.png'}}" class='voice-image'></image>
+              <view class='voice-duration'>{{comment.duration}}</view>
+            </view>
+          </view>
+
+        </view>
+
+        <view class='user-info'>
+          <image class="user-avatar" src="{{comment.user_avatar}}"></image>
+          <view class='user_name'>{{comment.user_name}}</view>
+        </view>
+
+      </view>
+    </view>
+    <view class='no-more'>没有更多了</view>
+  </view>
+
+  <view class='bottom-btn-wrapper'>
+    <button class='bottom-btn' bindtap='onTapHome'>回到首页
+    </button>
+  </view>
+
+</view>

@@ -1,0 +1,17 @@
+<!--pages/movlist/movlist.wxml-->
+
+<view class="movie-wrapper" wx:if="{{movies.length == 0}}">
+      <view class='movie-item  movie-empty'>暂无书籍展示</view>
+</view>
+
+<view class="movie-wrapper" wx:else>
+  <view wx:for="{{movies}}" wx:for-item="movie" wx:key="{{movie.id}}" class='movie-item' bindtap='goToMovDetail' id="movie-{{movie.id}}">
+    <image src='{{movie.image}}' class='movie-img'></image>
+    <view class='movie-info'>
+      <view class='movie-title'>{{movie.title}}</view>
+      <view class='movie-category'>{{movie.category}}</view>
+    </view>
+  </view>
+  <view class='no-more'>没有更多了</view>
+</view>
+

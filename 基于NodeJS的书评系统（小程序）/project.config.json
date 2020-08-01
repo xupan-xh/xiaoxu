@@ -1,0 +1,71 @@
+{
+	"client": "client/",
+	"svr": "server/",
+	"miniprogramRoot": "client/",
+	"qcloudRoot": "server/",
+	"setting": {
+		"newFeature": true
+	},
+	"appid": "wx6b8ced7d4b2afb17",
+	"projectname": "%E6%88%91%E7%9A%84%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E7%A8%8B%E5%BA%8F",
+	"compileType": "miniprogram",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 5,
+			"list": [
+				{
+					"id": -1,
+					"name": "热门电影页",
+					"pathName": "pages/movlist/movlist",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "电影详情页",
+					"pathName": "pages/movdetail/movdetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "影评编辑页",
+					"pathName": "pages/comedit/comedit",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "影评列表页",
+					"pathName": "pages/comlist/comtlist",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "影评详情页",
+					"pathName": "pages/comdetail/comdetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心页",
+					"pathName": "pages/user/user"
+				}
+			]
+		}
+	}
+}
